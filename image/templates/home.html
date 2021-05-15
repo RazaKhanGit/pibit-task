@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <title>Home</title>
+    {% if all_img %}
+        {% for img in all_img %}
+        <div class="card">
+            <h5 class="card-header"> {{ img.title }}        
+                    <a href="/edit/{{ img.id }}" class="btn btn-primary">Edit Details</a> </h5>
+            <div class="card-body">
+              <h5 class="card-title">Image Info</h5>
+              <p class="card-text">{{ img.info }}</p>
+              <img src="{{ img.image.url }}" style="width: 40%; margin: 1rem;" />
+            </div>
+            
+          </div>                     
+        <hr color="black">
+    {% endfor %}
+        <p>{{ msg }}</p>
+    {% else %} 
+        <p> No images uploaded.</p>
+    {% endif %} 
+{% endblock content %}
